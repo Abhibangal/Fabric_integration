@@ -1,0 +1,1135 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "ForEach",
+        "typeProperties": {
+          "items": {
+            "value": "@pipeline().parameters.cw_items_9zw",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "type": "Copy",
+              "typeProperties": {
+                "source": {
+                  "type": "LakehouseTableSource",
+                  "datasetSettings": {
+                    "type": "LakehouseTable",
+                    "typeProperties": {
+                      "table": {
+                        "value": "@item().source.table",
+                        "type": "Expression"
+                      }
+                    },
+                    "schema": [],
+                    "linkedService": {
+                      "name": "test_lakehouse",
+                      "properties": {
+                        "type": "Lakehouse",
+                        "typeProperties": {
+                          "artifactId": "d4f796c7-205d-bd80-4ac5-36aeada73a3a",
+                          "workspaceId": "00000000-0000-0000-0000-000000000000",
+                          "rootFolder": "Tables"
+                        },
+                        "annotations": []
+                      }
+                    },
+                    "annotations": []
+                  }
+                },
+                "sink": {
+                  "type": "LakehouseTableSink",
+                  "tableActionOption": "OverwriteSchema",
+                  "partitionOption": "None",
+                  "datasetSettings": {
+                    "type": "LakehouseTable",
+                    "typeProperties": {
+                      "table": {
+                        "value": "@item().destination.table",
+                        "type": "Expression"
+                      }
+                    },
+                    "schema": [],
+                    "linkedService": {
+                      "name": "test_lakehouse",
+                      "properties": {
+                        "type": "Lakehouse",
+                        "typeProperties": {
+                          "artifactId": "d4f796c7-205d-bd80-4ac5-36aeada73a3a",
+                          "workspaceId": "00000000-0000-0000-0000-000000000000",
+                          "rootFolder": "Tables"
+                        },
+                        "annotations": []
+                      }
+                    },
+                    "annotations": []
+                  }
+                },
+                "translator": {
+                  "value": "@item().copyActivity.translator",
+                  "type": "Expression"
+                },
+                "enableStaging": false
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "Copy_9zw",
+              "dependsOn": []
+            }
+          ]
+        },
+        "name": "ForEach_9zw",
+        "dependsOn": []
+      }
+    ],
+    "parameters": {
+      "cw_items_9zw": {
+        "type": "Array",
+        "defaultValue": [
+          {
+            "source": {
+              "table": "cust_dim"
+            },
+            "destination": {
+              "table": "cust_dim"
+            },
+            "copyActivity": {
+              "translator": {
+                "type": "TabularTranslator",
+                "mappings": [
+                  {
+                    "source": {
+                      "name": "customer_key",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "customer_key",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "customer_name",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "customer_name",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "age",
+                      "type": "Int32",
+                      "physicalType": "integer"
+                    },
+                    "sink": {
+                      "name": "age",
+                      "physicalType": "integer"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "gender",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "gender",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "city",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "city",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "state",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "state",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "country",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "country",
+                      "physicalType": "string"
+                    }
+                  }
+                ],
+                "typeConversion": true,
+                "typeConversionSettings": {
+                  "allowDataTruncation": true,
+                  "treatBooleanAsNumber": false
+                }
+              }
+            }
+          },
+          {
+            "source": {
+              "table": "date_dim"
+            },
+            "destination": {
+              "table": "date_dim"
+            },
+            "copyActivity": {
+              "translator": {
+                "type": "TabularTranslator",
+                "mappings": [
+                  {
+                    "source": {
+                      "name": "D_DATE_SK",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_DATE_SK",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_DATE_ID",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "D_DATE_ID",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_DATE",
+                      "type": "Date",
+                      "physicalType": "date"
+                    },
+                    "sink": {
+                      "name": "D_DATE",
+                      "physicalType": "date"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_MONTH_SEQ",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_MONTH_SEQ",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_WEEK_SEQ",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_WEEK_SEQ",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_QUARTER_SEQ",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_QUARTER_SEQ",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_YEAR",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_YEAR",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_DOW",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_DOW",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_MOY",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_MOY",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_DOM",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_DOM",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_QOY",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_QOY",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_FY_YEAR",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_FY_YEAR",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_FY_QUARTER_SEQ",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_FY_QUARTER_SEQ",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_FY_WEEK_SEQ",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_FY_WEEK_SEQ",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_DAY_NAME",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "D_DAY_NAME",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_QUARTER_NAME",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "D_QUARTER_NAME",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_HOLIDAY",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "D_HOLIDAY",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_WEEKEND",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "D_WEEKEND",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_FOLLOWING_HOLIDAY",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "D_FOLLOWING_HOLIDAY",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_FIRST_DOM",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_FIRST_DOM",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_LAST_DOM",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_LAST_DOM",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_SAME_DAY_LY",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_SAME_DAY_LY",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_SAME_DAY_LQ",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "D_SAME_DAY_LQ",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_CURRENT_DAY",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "D_CURRENT_DAY",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_CURRENT_WEEK",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "D_CURRENT_WEEK",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_CURRENT_MONTH",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "D_CURRENT_MONTH",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_CURRENT_QUARTER",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "D_CURRENT_QUARTER",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "D_CURRENT_YEAR",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "D_CURRENT_YEAR",
+                      "physicalType": "string"
+                    }
+                  }
+                ],
+                "typeConversion": true,
+                "typeConversionSettings": {
+                  "allowDataTruncation": true,
+                  "treatBooleanAsNumber": false
+                }
+              }
+            }
+          },
+          {
+            "source": {
+              "table": "fact_sales"
+            },
+            "destination": {
+              "table": "fact_sales"
+            },
+            "copyActivity": {
+              "translator": {
+                "type": "TabularTranslator",
+                "mappings": [
+                  {
+                    "source": {
+                      "name": "payment_key",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "payment_key",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "coustomer_key",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "coustomer_key",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "time_key",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "time_key",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "item_key",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "item_key",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "store_key",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "store_key",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "quantity",
+                      "type": "Int32",
+                      "physicalType": "integer"
+                    },
+                    "sink": {
+                      "name": "quantity",
+                      "physicalType": "integer"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "unit",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "unit",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "unit_price",
+                      "type": "Double",
+                      "physicalType": "double"
+                    },
+                    "sink": {
+                      "name": "unit_price",
+                      "physicalType": "double"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "total_price",
+                      "type": "Double",
+                      "physicalType": "double"
+                    },
+                    "sink": {
+                      "name": "total_price",
+                      "physicalType": "double"
+                    }
+                  }
+                ],
+                "typeConversion": true,
+                "typeConversionSettings": {
+                  "allowDataTruncation": true,
+                  "treatBooleanAsNumber": false
+                }
+              }
+            }
+          },
+          {
+            "source": {
+              "table": "payment_dim"
+            },
+            "destination": {
+              "table": "payment_dim"
+            },
+            "copyActivity": {
+              "translator": {
+                "type": "TabularTranslator",
+                "mappings": [
+                  {
+                    "source": {
+                      "name": "payment_key",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "payment_key",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "trans_type",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "trans_type",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "bank_name",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "bank_name",
+                      "physicalType": "string"
+                    }
+                  }
+                ],
+                "typeConversion": true,
+                "typeConversionSettings": {
+                  "allowDataTruncation": true,
+                  "treatBooleanAsNumber": false
+                }
+              }
+            }
+          },
+          {
+            "source": {
+              "table": "store_dim"
+            },
+            "destination": {
+              "table": "store_dim"
+            },
+            "copyActivity": {
+              "translator": {
+                "type": "TabularTranslator",
+                "mappings": [
+                  {
+                    "source": {
+                      "name": "S_STORE_SK",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "S_STORE_SK",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_STORE_ID",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_STORE_ID",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_REC_START_DATE",
+                      "type": "Date",
+                      "physicalType": "date"
+                    },
+                    "sink": {
+                      "name": "S_REC_START_DATE",
+                      "physicalType": "date"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_REC_END_DATE",
+                      "type": "Date",
+                      "physicalType": "date"
+                    },
+                    "sink": {
+                      "name": "S_REC_END_DATE",
+                      "physicalType": "date"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_CLOSED_DATE_SK",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "S_CLOSED_DATE_SK",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_STORE_NAME",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_STORE_NAME",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_NUMBER_EMPLOYEES",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "S_NUMBER_EMPLOYEES",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_FLOOR_SPACE",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "S_FLOOR_SPACE",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_HOURS",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_HOURS",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_MANAGER",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_MANAGER",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_MARKET_ID",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "S_MARKET_ID",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_GEOGRAPHY_CLASS",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_GEOGRAPHY_CLASS",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_MARKET_DESC",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_MARKET_DESC",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_MARKET_MANAGER",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_MARKET_MANAGER",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_DIVISION_ID",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "S_DIVISION_ID",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_DIVISION_NAME",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_DIVISION_NAME",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_COMPANY_ID",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "S_COMPANY_ID",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_COMPANY_NAME",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_COMPANY_NAME",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_STREET_NUMBER",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_STREET_NUMBER",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_STREET_NAME",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_STREET_NAME",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_STREET_TYPE",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_STREET_TYPE",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_SUITE_NUMBER",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_SUITE_NUMBER",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_CITY",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_CITY",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_COUNTY",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_COUNTY",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_STATE",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_STATE",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_ZIP",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_ZIP",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_COUNTRY",
+                      "type": "String",
+                      "physicalType": "string"
+                    },
+                    "sink": {
+                      "name": "S_COUNTRY",
+                      "physicalType": "string"
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_GMT_OFFSET",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "S_GMT_OFFSET",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  },
+                  {
+                    "source": {
+                      "name": "S_TAX_PRECENTAGE",
+                      "type": "Decimal",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    },
+                    "sink": {
+                      "name": "S_TAX_PRECENTAGE",
+                      "physicalType": "decimal",
+                      "scale": 6,
+                      "precision": 34
+                    }
+                  }
+                ],
+                "typeConversion": true,
+                "typeConversionSettings": {
+                  "allowDataTruncation": true,
+                  "treatBooleanAsNumber": false
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

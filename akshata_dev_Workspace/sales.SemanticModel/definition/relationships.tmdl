@@ -1,0 +1,8 @@
+relationship 81155206-9584-6695-87f6-6efca52d066c
+	fromColumn: fact_sales.coustomer_key
+	toColumn: cust_dim.customer_key
+
+relationship c2c63851-70ea-6f66-8656-eaefb0d7aa79
+	fromColumn: fact_sales.payment_key
+	toColumn: payment_dim.payment_key
+

@@ -1,0 +1,43 @@
+table payment_dim
+	lineageTag: a7a5dbd2-9d07-4639-9477-d535181dfb4f
+	sourceLineageTag: [dbo].[payment_dim]
+
+	column payment_key
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6d2914c7-cf67-4cfb-92bf-c44ec8f0f069
+		sourceLineageTag: payment_key
+		summarizeBy: none
+		sourceColumn: payment_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column trans_type
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c58a8a3a-24d2-4fb2-a883-e09259b96b7c
+		sourceLineageTag: trans_type
+		summarizeBy: none
+		sourceColumn: trans_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column bank_name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 87e95cd9-349c-4003-acd9-ceb583232eab
+		sourceLineageTag: bank_name
+		summarizeBy: none
+		sourceColumn: bank_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition payment_dim = entity
+		mode: directLake
+		source
+			entityName: payment_dim
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

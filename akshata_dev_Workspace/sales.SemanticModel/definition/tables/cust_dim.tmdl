@@ -1,0 +1,84 @@
+table cust_dim
+	lineageTag: 0c27a9c6-e7e4-45b2-a297-5d977289c2df
+	sourceLineageTag: [dbo].[cust_dim]
+
+	column customer_key
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e781e40e-d6f6-47b1-a212-ad0372c1b756
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 556e31bd-e5d1-4b9a-952f-1ec0ef1e25b4
+		sourceLineageTag: customer_name
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column age
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bf907daf-3d29-4d95-aab0-93d470dc1a22
+		sourceLineageTag: age
+		summarizeBy: none
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: df51d81d-7030-4883-876f-900dbdffe79b
+		sourceLineageTag: gender
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b7cdaca5-b1b4-4881-9641-d85d5062755d
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b369e2e7-064a-4257-bf5a-2c5e82da25c8
+		sourceLineageTag: state
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 66918a01-a627-4736-94db-fc016dd565f2
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition cust_dim = entity
+		mode: directLake
+		source
+			entityName: cust_dim
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

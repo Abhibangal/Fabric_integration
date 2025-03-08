@@ -1,0 +1,26 @@
+[
+  {
+    "name": "IB_EMPLOYEE",
+    "path": "/Tables",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "da9ff2ec-b5cf-4348-81fa-644b4665bbd8",
+        "location": "https://abhiiceberg.dfs.core.windows.net",
+        "subpath": "/icebergtables/IB_EMPLOYEE"
+      }
+    }
+  },
+  {
+    "name": "IB_DEPT",
+    "path": "/Tables",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "da9ff2ec-b5cf-4348-81fa-644b4665bbd8",
+        "location": "https://abhiiceberg.dfs.core.windows.net",
+        "subpath": "/icebergtables/IB_DEPT"
+      }
+    }
+  }
+]
