@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.61\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "14a1cf2431dd16e5ca34",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"56986f053b928671b663\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.72644376899696,\"y\":0,\"z\":0,\"width\":606.9300911854103,\"height\":720.7294832826748,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"IB_EMPLOYEE.EMP_ID\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(IB_EMPLOYEE.EMP_SALARY)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"i\",\"Entity\":\"IB_EMPLOYEE\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"EMP_ID\"},\"Name\":\"IB_EMPLOYEE.EMP_ID\",\"NativeReferenceName\":\"EMP_ID\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"EMP_SALARY\"}},\"Function\":0},\"Name\":\"Sum(IB_EMPLOYEE.EMP_SALARY)\",\"NativeReferenceName\":\"EMP_SALARY\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"EMP_SALARY\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 720.73,
+          "width": 606.93,
+          "x": 9.73,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"8df18eab86e576e411b6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":627,\"y\":0,\"width\":607,\"height\":720,\"z\":1000,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Category\":[{\"queryRef\":\"IB_EMPLOYEE.EMP_SALARY\",\"active\":true}],\"Y\":[{\"queryRef\":\"CountNonNull(IB_EMPLOYEE.EMP_ID)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"i\",\"Entity\":\"IB_EMPLOYEE\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"EMP_SALARY\"},\"Name\":\"IB_EMPLOYEE.EMP_SALARY\",\"NativeReferenceName\":\"EMP_SALARY\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"EMP_ID\"}},\"Function\":5},\"Name\":\"CountNonNull(IB_EMPLOYEE.EMP_ID)\",\"NativeReferenceName\":\"Count of EMP_ID\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"EMP_ID\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[{\"name\":\"6b40f69d81c3f3058dfa\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"IB_EMPLOYEE\"}},\"Property\":\"EMP_SALARY\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"i\",\"Entity\":\"IB_EMPLOYEE\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"EMP_SALARY\"}},\"Right\":{\"Literal\":{\"Value\":\"700M\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1}]",
+          "height": 720.00,
+          "width": 607.00,
+          "x": 627.00,
+          "y": 0.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.61\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "055863814c3ac214c476",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"6bac45aff5d8f63f1a50\",\"layouts\":[{\"id\":0,\"position\":{\"x\":651,\"y\":0,\"width\":629,\"height\":720,\"z\":1,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(fact_sales.total_price)\"}],\"Rows\":[{\"queryRef\":\"cust_dim.country\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_sales\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"cust_dim\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_price\"}},\"Function\":0},\"Name\":\"Sum(fact_sales.total_price)\",\"NativeReferenceName\":\"Sum of total_price\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"country\"},\"Name\":\"cust_dim.country\",\"NativeReferenceName\":\"country\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 720.00,
+          "width": 629.00,
+          "x": 651.00,
+          "y": 0.00,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"dc89baf2b6adbd1cd1f1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.854576561163388,\"y\":0,\"z\":0,\"width\":630.6928999144568,\"height\":720.4790419161676,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(fact_sales.total_price)\"}],\"Rows\":[{\"queryRef\":\"payment_dim.bank_name\",\"active\":true}],\"Columns\":[{\"queryRef\":\"payment_dim.trans_type\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_sales\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"payment_dim\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_price\"}},\"Function\":0},\"Name\":\"Sum(fact_sales.total_price)\",\"NativeReferenceName\":\"Sum of total_price\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"bank_name\"},\"Name\":\"payment_dim.bank_name\",\"NativeReferenceName\":\"bank_name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"trans_type\"},\"Name\":\"payment_dim.trans_type\",\"NativeReferenceName\":\"trans_type\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 720.48,
+          "width": 630.69,
+          "x": 9.85,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

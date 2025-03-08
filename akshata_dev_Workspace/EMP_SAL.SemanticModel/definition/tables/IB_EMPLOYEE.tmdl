@@ -1,0 +1,47 @@
+table IB_EMPLOYEE
+	lineageTag: 0d34a9e1-cb2f-4205-8e70-6fc257bda02f
+	sourceLineageTag: [dbo].[IB_EMPLOYEE]
+
+	column EMP_ID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a8ddc88c-a35f-4997-8bdc-194fd3ea0bcc
+		sourceLineageTag: EMP_ID
+		summarizeBy: count
+		sourceColumn: EMP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMP_NAME
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3fa7e781-0e07-4a28-8547-517ddefaed0c
+		sourceLineageTag: EMP_NAME
+		summarizeBy: none
+		sourceColumn: EMP_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMP_SALARY
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(5, 2)
+		lineageTag: 6572f0ad-2c44-4ea0-b03b-b23a8c17efdc
+		sourceLineageTag: EMP_SALARY
+		summarizeBy: sum
+		sourceColumn: EMP_SALARY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition IB_EMPLOYEE = entity
+		mode: directLake
+		source
+			entityName: IB_EMPLOYEE
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

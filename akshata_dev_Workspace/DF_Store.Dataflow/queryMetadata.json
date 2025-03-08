@@ -1,0 +1,103 @@
+{
+  "formatVersion": "202409",
+  "lastModified": null,
+  "editingSession": {
+    "computeEngineSettings": {},
+    "editingSessionMashup": {
+      "mashupName": "Dataflow 1",
+      "queryGroups": [],
+      "documentLocale": "en-GB",
+      "queriesMetadata": {
+        "STORE": {
+          "queryId": "89c4675a-16af-4817-b41a-a906cf583193",
+          "queryName": "STORE",
+          "queryGroupId": null,
+          "entityName": null,
+          "lastKnownIsCalculatedEntity": null,
+          "lastKnownIsLinkedEntity": null,
+          "lastKnownIsParameter": null,
+          "isHidden": false,
+          "lastKnownResultTypeName": null,
+          "loadEnabled": false,
+          "fieldsMetadata": {},
+          "deleteExistingDataOnLoad": false,
+          "hostProperties": {},
+          "jsonOutputDestinations": null,
+          "bindToDefaultOutputDestination": null,
+          "jsonIncrementalRefreshSettings": null
+        },
+        "STORE_DataDestination": {
+          "queryId": "1f825c38-5495-4bf4-a11a-a95f5d14ca00",
+          "queryName": "STORE_DataDestination",
+          "queryGroupId": null,
+          "entityName": null,
+          "lastKnownIsCalculatedEntity": null,
+          "lastKnownIsLinkedEntity": null,
+          "lastKnownIsParameter": null,
+          "isHidden": true,
+          "lastKnownResultTypeName": null,
+          "loadEnabled": false,
+          "fieldsMetadata": {},
+          "deleteExistingDataOnLoad": false,
+          "hostProperties": {},
+          "jsonOutputDestinations": null,
+          "bindToDefaultOutputDestination": null,
+          "jsonIncrementalRefreshSettings": null
+        }
+      },
+      "connectionOverrides": [
+        {
+          "path": "DGDFTZU-AG28036.snowflakecomputing.com;compute_wh",
+          "kind": "Snowflake",
+          "provider": "DmtsFabric",
+          "connectionName": "{\"ClusterId\":\"77e47124-7474-4fe8-8f31-8604a39397f5\",\"DatasourceId\":\"707447ce-fc37-44e9-9242-45739bb9537c\"}",
+          "credentialDetails": {},
+          "connectionParameters": {}
+        },
+        {
+          "path": "DGDFTZU-AG28036.snowflakecomputing.com;COMPUTE_WH",
+          "kind": "Snowflake",
+          "provider": "DmtsFabric",
+          "connectionName": "{\"ClusterId\":\"77e47124-7474-4fe8-8f31-8604a39397f5\",\"DatasourceId\":\"4703b42f-8b9e-46a9-af45-5fbc6c7a5a7f\"}",
+          "credentialDetails": {},
+          "connectionParameters": {}
+        },
+        {
+          "path": "dgdftzu-ag28036.snowflakecomputing.com;COMPUTE_WH",
+          "kind": "Snowflake",
+          "provider": "DmtsFabric",
+          "connectionName": "{\"ClusterId\":\"77e47124-7474-4fe8-8f31-8604a39397f5\",\"DatasourceId\":\"57a27b46-0c74-47d7-819f-ad4557dd770a\"}",
+          "credentialDetails": {},
+          "connectionParameters": {}
+        },
+        {
+          "path": "Lakehouse",
+          "kind": "Lakehouse",
+          "provider": "DmtsFabric",
+          "connectionName": "{\"ClusterId\":\"77e47124-7474-4fe8-8f31-8604a39397f5\",\"DatasourceId\":\"f1b9b9cf-066d-4648-b53e-6ff49312b1ff\"}",
+          "credentialDetails": {},
+          "connectionParameters": {}
+        }
+      ],
+      "trustedConnections": [
+        {
+          "path": "Lakehouse",
+          "kind": "Lakehouse",
+          "provider": "DmtsFabric",
+          "connectionName": "{\"ClusterId\":\"77e47124-7474-4fe8-8f31-8604a39397f5\",\"DatasourceId\":\"f1b9b9cf-066d-4648-b53e-6ff49312b1ff\"}",
+          "credentialDetails": {},
+          "connectionParameters": {}
+        }
+      ],
+      "useHostConnectionProvider": false,
+      "fastCombine": false,
+      "allowNativeQueries": true,
+      "skipAutomaticTypeAndHeaderDetection": false,
+      "hostProperties": {
+        "dataflowRefreshOutputFileFormat": "Parquet",
+        "enableDateTimeFieldsForStaging": "true",
+        "enablePublishWithoutLoadedQueries": "true"
+      }
+    }
+  }
+}
